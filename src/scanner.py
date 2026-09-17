@@ -1,3 +1,7 @@
+import cv2 as cv
+import numpy as np
+
+
 def load_image(image_path):
     img = cv.imread(image_path)
     return img
