@@ -84,3 +84,13 @@ def warp_document(img, corners):
     warped = cv.warpPerspective(img, M, (width, height))
 
     return warped
+
+def scan_document(image_path):
+    image = load_image(image_path)
+    binary_image = process_image(image)
+    best_candidate = find_contours(binary_image)
+    if best_candidate is None:
+        raise ValueError("No document found in image")
+    
+    warped = warp_document(image, best_candidate)
+    return warped
