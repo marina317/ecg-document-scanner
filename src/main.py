@@ -1,4 +1,4 @@
-import Path
+from pathlib import Path
 import sys
 import argparse
 from scanner import scan_document
